@@ -6,7 +6,7 @@ require("dotenv").config();
 interface FilmeDocument extends mongoose.Document {
   _id: number;
   titulo: string;
-  descricao: string;
+  sinopse: string;
   imagem: string;
 }
 
@@ -16,7 +16,7 @@ const FilmeModelo = mongoose.model<FilmeDocument>(
   new mongoose.Schema({
     _id: Number,
     titulo: String,
-    descricao: String,
+    sinopse: String,
     imagem: String,
   })
 );
@@ -25,7 +25,7 @@ const FilmeModelo = mongoose.model<FilmeDocument>(
 type Filme = {
   id: number;
   titulo: string;
-  descricao: string;
+  sinopse: string;
   imagem: string;
 };
 
@@ -46,7 +46,7 @@ export default class BancoMongoDB implements FilmeRepositorioInterface {
     const filmeDTO = {
       _id: filme.id,
       titulo: filme.titulo,
-      descricao: filme.descricao,
+      sinopse: filme.sinopse,
       imagem: filme.imagem,
     };
 
@@ -56,7 +56,7 @@ export default class BancoMongoDB implements FilmeRepositorioInterface {
     const filmeSalvo: Filme = {
       id: result._id,
       titulo: result.titulo,
-      descricao: result.descricao,
+      sinopse: result.sinopse,
       imagem: result.imagem,
     };
     return filmeSalvo;
@@ -69,7 +69,7 @@ export default class BancoMongoDB implements FilmeRepositorioInterface {
       const filmes: Filme[] = listarFilme.map((filme: FilmeDocument) => ({
         id: filme._id,
         titulo: filme.titulo,
-        descricao: filme.descricao,
+        sinopse: filme.sinopse,
         imagem: filme.imagem,
       }));
 

@@ -57,7 +57,7 @@ app.listen(3000, () => {
 type Filme = {
   id: number;
   titulo: string;
-  descricao: string;
+  sinopse: string;
   imagem: string;
 };
 
